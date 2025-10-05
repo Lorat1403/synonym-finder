@@ -34,9 +34,14 @@ textarea {
   border: none;
   box-shadow: var(--mat-sys-level4);
 transition: all 200ms linear;
+cursor: pointer;
   }
 
-  .btn:hover {
-   
-    transform: scale(1.1);
+.btn-secondary:hover {
+  transform: scale(1.1);
   }
+
+.btn-primary:not(:disabled):hover {
+  transform: scale(1.1);
+      
+   }
