@@ -1,0 +1,56 @@
+<div class="analyzer-container">
+  <h1>📝 Аналізатор Фраз та Слів</h1>
+
+  <textarea
+    [(ngModel)]="textAreaContent"
+    (input)="onTextChange()"
+    (mouseup)="captureSelection($event)"
+    (keyup)="captureSelection($event)"
+    placeholder="Введіть текст тут..."
+    rows="10"
+  >
+  </textarea>
+
+  <div class="controls">
+    <button
+      (click)="getSynonyms()"
+      [disabled]="!selectedText || isLoadingSynonyms"
+      class="btn btn-primary"
+    >
+      <span *ngIf="isLoadingSynonyms">Завантаження...</span>
+      <span *ngIf="!isLoadingSynonyms"
+        >🔍 Отримати синоніми ({{ selectedText || "виділіть слово" }})</span
+      >
+    </button>
+
+    <button (click)="copyText()" class="btn btn-secondary">
+      📋 Скопіювати текст
+    </button>
+  </div>
+
+  <hr />
+
+  <div class="analysis-results">
+    <h2>📊 Статистика</h2>
+    <p><strong>Кількість символів:</strong> {{ charCount }}</p>
+    <p><strong>Кількість слів:</strong> {{ wordCount }}</p>
+  </div>
+
+  <hr />
+
+  <div class="synonym-list" *ngIf="synonyms.length > 0">
+    <h2>✨ Знайдені синоніми:</h2>
+    <p class="instruction">
+      Натисніть на синонім, щоб замінити виділене слово/фразу:
+    </p>
+    <div class="synonym-chips">
+      <span
+        *ngFor="let synonym of synonyms"
+        (click)="replaceSelectedText(synonym)"
+        class="synonym-chip"
+      >
+        {{ synonym }}
+      </span>
+    </div>
+  </div>
+</div>

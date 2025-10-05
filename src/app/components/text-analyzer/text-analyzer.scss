@@ -1,0 +1,42 @@
+.synonym-chip {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 4px;
+  color: rgb(39, 35, 35);
+  background-color: #e0f7fa;
+  border: 1px solid #00bcd4;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.synonym-chip:hover {
+  background-color: #b2ebf2;
+
+}
+
+textarea {
+  width: 100%;
+  min-height: 200px;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  color: rgb(39, 35, 35);
+  font-size: large;
+  background-color: rgb(79, 214, 158);
+}
+
+.controls button {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: var(--mat-sys-level4);
+transition: all 200ms linear;
+  }
+
+  .btn:hover {
+   
+    transform: scale(1.1);
+  }
